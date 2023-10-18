@@ -1,16 +1,15 @@
 \documentclass[sigchi]{acmart}
 
+\usepackage{newfloat}
 \usepackage{booktabs} % For formal tables
-\setcopyright{none}
-%\setcopyright{acmcopyright}
-%\setcopyright{acmlicensed}
-%\setcopyright{rightsretained}
-%\setcopyright{usgov}
-%\setcopyright{usgovmixed}
-%\setcopyright{cagov}
-%\setcopyright{cagovmixed}
+\usepackage[outputdir=build]{minted} % For syntax highlighting
 
-%Conference
+\DeclareFloatingEnvironment[fileext=frm,placement={!ht},name=Snippet]{snippet}
+\captionsetup[snippet]{labelfont=bf}
+
+\setcopyright{none}
+
+
 \acmConference[Seminar Name]{Seminar Name}{Winter 2023}{UniBw M} 
 \acmYear{2023}
 
@@ -135,6 +134,23 @@ and follow it with another numbered equation:
   \sum_{i=0}^{\infty}x_i=\int_{0}^{\pi+2} f
 \end{equation}
 just to demonstrate \LaTeX's able handling of numbering.
+
+\subsubsection{Display Code}
+You can display code with the minted package. See Snippet~\ref{code:example}.
+
+Indeed, you can also display links: \href{https://www.unibw.de}{https://www.unibw.de}
+
+\begin{snippet}
+\begin{minted}{c}
+uint64_t cnt = 0;
+void function() {
+    if (cnt++) exit(-1);
+    /* rest of body */
+}
+\end{minted}
+\caption{A sample code block.}
+\label{code:example}
+\end{snippet}
 
 \subsection{Citations}
 Citations to articles~\cite{bowman:reasoning,
